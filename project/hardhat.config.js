@@ -1,0 +1,21 @@
+require("@nomicfoundation/hardhat-toolbox");
+require("dotenv").config();
+require("@nomiclabs/hardhat-ethers");
+//import("./tasks/nft")
+
+/** @type import('hardhat/config').HardhatUserConfig */
+
+const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL;
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
+module.exports = {
+    solidity: "0.8.7",
+    defaultNetworks: "goerli",
+    networks: {
+        hardhat: {},
+        goerli: {
+            url: GOERLI_RPC_URL,
+            accounts: [PRIVATE_KEY],
+            chainId: 5,
+        },
+    },
+};
